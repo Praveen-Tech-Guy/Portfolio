@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PORTFOLIO PAGE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #0b0b0b;
+      --bg-2: #121212;
+      --accent: #e50914;
+      --blue-stroke: #0ea5ff;
+      --muted: #9a9a9a;
+      --glass: rgba(255,255,255,0.03);
+      --card-radius: 14px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.35;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== Floating background images layer ===== */
+  .bg-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bg-layer .bg-img {
+  position: absolute;
+  width: 250px;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  filter: blur(2px);
+  border-radius: 8px;
+  animation: floatUp linear infinite;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-120vh) rotate(10deg);
+  }
+}
+
+
+    /* ===== Top nav ===== */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      z-index: 60;
+      background: linear-gradient(180deg, rgba(11,11,11,0.65), rgba(11,11,11,0.25));
+      backdrop-filter: blur(6px);
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      font-size: 20px;
+    }
+    .nav-right {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .btn {
+      background: transparent;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 100px 24px 60px;
+      position: relative;
+      z-index: 10;  /* in front of bg images */
+    }
+
+    .hero {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+    }
+    .hero-left {
+      flex: 1;
+      min-width: 260px;
+    }
+    .kicker {
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 44px;
+      margin: 0 0 12px;
+      line-height: 1.02;
+    }
+    p.lead {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .profile-wrap {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      flex: 0 0 260px;
+    }
+    .profile {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile svg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .svg-path {
+      fill: none;
+      stroke: var(--blue-stroke);
+      stroke-width: 1;
+      opacity: 0.95;
+    }
+
+    .section {
+      margin-top: 56px;
+    }
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 20px;
+    }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .project-card {
+      flex: 1 1 calc(33.333% - 12px);
+      min-width: 220px;
+      max-width: 360px;
+      padding: 18px;
+      border-radius: var(--card-radius);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+    .project-thumb {
+      height: 160px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .project-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 12px;
+      padding: 6px 8px;
+      background: var(--glass);
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .contact .info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .contact a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(180deg, #25D366, #128C7E);
+      padding: 12px 14px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      color: white;
+    }
+    .whatsapp-btn img {
+      width: 20px;
+    }
+
+    @media (max-width: 960px) {
+      h1 {
+        font-size: 36px;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+      .profile-wrap {
+        width: 200px;
+        height: 200px;
+      }
+      .container {
+        padding: 86px 18px 40px;
+      }
+      .project-card {
+        flex-basis: calc(50% - 12px);
+      }
+    }
+    @media (max-width: 560px) {
+      h1 {
+        font-size: 28px;
+      }
+      .profile-wrap {
+        width: 140px;
+        height: 140px;
+      }
+      .project-card {
+        flex-basis: 100%;
+      }
+      .nav {
+        padding: 0 12px;
+        height: 62px;
+      }
+    }
+
+    a:focus, button:focus {
+      outline: 2px solid rgba(14,165,255,0.18);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background floating images -->
+<div class="bg-layer">
+  <div class="bg-img" style="background-image:url('download.1-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download2-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download3-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download4-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download5-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download6-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download7-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download8-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download9-removebg-preview.png')"></div>
+  <div class="bg-img" style="background-image:url('download10-removebg-preview.png')"></div>
+</div>
+
+
+  <!-- Top navigation -->
+  <header class="nav" role="banner">
+    <div class="brand">Praveen<span style="color:var(--muted); font-weight:600; margin-left:8px;">• Portfolio</span></div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="hero" aria-label="Intro">
+      <div class="hero-left">
+        <div class="kicker">Front-End Developer</div>
+        <h1>Hi — I'm <span style="color:var(--accent)">Praveen Pachange</span>.<br> I build clean, production-ready websites.</h1>
+        <p class="lead"> interested in Front-End Web Development and AI-driven design. Skilled in communication, leadership, and creative problem-solving. Eager to apply technical and design skills to build modern, efficient, and user-friendly web solutions.
+ Scroll to see projects, or reach out via the contact links.</p>
+
+        <div class="contact" id="contact">
+          <div class="info">
+            <a href="mailto:praveenpachange9@gmail.com" aria-label="Email">✉️ praveenpachange9@gmail.com</a>
+            <a href="tel:+917028115061" aria-label="Phone">📞 +91 7028115061</a>
+            <a href="https://instagram.com/_praveen_087" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸 @_praveen_087</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-wrap" aria-hidden="false">
+        <div class="profile" role="img" aria-label="Profile image of Your Name">
+          <img src=" IMG_20250308_000439_685.png " alt="Profile image">
+          <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path class="svg-path" d="M20,140 C40,20 220,10 240,130" stroke-linecap="round"/>
+            <path class="svg-path" d="M36,160 C58,46 202,38 218,150" stroke-linecap="round" opacity="0.65"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Selected Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" role="article">
+          <a href="https://praveen-tech-guy.github.io/DIGITAL-CREATORS-GOA/DigitalAgency.html">
+          <div class="project-thumb"> <img src="marketing.jpg" alt=""></div>
+          <div class="project-title">PORTFOLIO FOR CREATORS</div>
+          <div class="project-desc">website for DIGITAL CREATORS.</div>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JS</span>
+          </div>
+          </a>
+        </article>
+
+        <article class="project-card">
+          <a href="https://praveen-tech-guy.github.io/Cafe-webpage/cafe.html">
+          <div class="project-thumb" style="align-items: center;"><img src="cafe3.jpeg" alt=""></div>
+          <div class="project-title">CAFE WEBSITE</div>
+          <div class="project-desc">An authentic website for cafe's.</div>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span> <span class="tag">JS</span></div>
+          </a>
+        </article>
+
+        <article class="project-card">
+          <a href="https://praveen-tech-guy.github.io/Sheetal/Sheetal.html">
+          <div class="project-thumb"><img src="cheezpizza.jpeg" alt=""></div>
+          <div class="project-title">RESTUARANT WEBSITE</div>
+          <div class="project-desc">A personal website for the restuarants ,to increase their online presence.</div>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+        </article>
+      </div>
+      
+    </section>
+
+    <section class="section" id="about">
+      <h2>About Me</h2>
+      <p style="color:var(--muted); max-width:66ch">I design and build full-stack applications with an emphasis on performance, accessible UX, and polished UI. I enjoy turning complex problems into simple, beautiful interfaces. <a href="https://www.figma.com/design/sz0HUksku5P26ObBwFFAjK/Untitled?m=auto&t=PxlT47V0eY06m0mg-1"><p>My Resume</p></a></p></p>
+    </section>
+
+    <footer style="margin-top:40px; color:var(--muted); font-size:13px">© <span id=\"year\"></span> PRAVEEN — Built with ✨</footer>
+  </main>
+
+  <a class="whatsapp-btn" href="https://wa.me/917028115061?text=Hi%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <span style="font-weight:700">Chat</span>
+  </a>
+
+<script>
+const posters = document.querySelectorAll('.bg-layer .bg-img');
+posters.forEach(poster => {
+  poster.style.left = Math.random() * 100 + "vw";
+  poster.style.animationDuration = (40 + Math.random() * 30) + "s";
+  poster.style.animationDelay = (Math.random() * 40) + "s";
+});
+
+</script>
+
+</body>
+</html>
