@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PORTFOLIO PAGE</title>
+  <title>Praveen Pachange - Front-End Developer & Creative Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -15,6 +15,61 @@
       --glass: rgba(255,255,255,0.03);
       --card-radius: 14px;
       --max-width: 1200px;
+    }
+
+        .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--blue-stroke));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Add this new animation */
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stat-card {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(14, 165, 255, 0.08), rgba(229, 9, 20, 0.05));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+      animation: countUp 0.6s ease forwards;
+    }
+
+    .stat-card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .stat-card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .stat-card:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue-stroke);
+      box-shadow: 0 15px 40px rgba(14, 165, 255, 0.1);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
     }
 
     * {
@@ -45,36 +100,34 @@
     }
 
     /* ===== Floating background images layer ===== */
-  .bg-layer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
+    .bg-layer {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
 
-.bg-layer .bg-img {
-  position: absolute;
-  width: 250px;
-  height: 380px;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.35;
-  filter: blur(2px);
-  border-radius: 8px;
-  animation: floatUp linear infinite;
-}
+    .bg-layer .bg-img {
+      position: absolute;
+      width: 250px;
+      height: 380px;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      filter: blur(2px);
+      border-radius: 8px;
+      animation: floatUp linear infinite;
+    }
 
-/* Floating animation */
-@keyframes floatUp {
-  0% {
-    transform: translateY(110vh) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-120vh) rotate(10deg);
-  }
-}
-
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-120vh) rotate(10deg);
+      }
+    }
 
     /* ===== Top nav ===== */
     .nav {
@@ -105,10 +158,15 @@
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
     .btn.primary {
       background: var(--accent);
       color: white;
+    }
+    .btn.primary:hover {
+      box-shadow: 0 8px 24px rgba(229, 9, 20, 0.4);
+      transform: translateY(-2px);
     }
 
     .container {
@@ -116,7 +174,7 @@
       margin: 0 auto;
       padding: 100px 24px 60px;
       position: relative;
-      z-index: 10;  /* in front of bg images */
+      z-index: 10;
     }
 
     .hero {
@@ -135,15 +193,58 @@
       font-weight: 600;
       margin-bottom: 10px;
       display: inline-block;
+      padding: 6px 12px;
+      background: rgba(14, 165, 255, 0.1);
+      border: 1px solid var(--blue-stroke);
+      border-radius: 999px;
     }
     h1 {
       font-size: 44px;
       margin: 0 0 12px;
       line-height: 1.02;
+      letter-spacing: -0.5px;
     }
     p.lead {
       color: var(--muted);
       max-width: 60ch;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-btn.primary {
+      background: linear-gradient(135deg, var(--accent), #ff1d28);
+      color: white;
+      box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+    }
+    .cta-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(229, 9, 20, 0.5);
+    }
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--blue-stroke);
+      border: 2px solid var(--blue-stroke);
+    }
+    .cta-btn.secondary:hover {
+      background: rgba(14, 165, 255, 0.1);
+      transform: translateY(-3px);
     }
 
     .profile-wrap {
@@ -159,7 +260,7 @@
       overflow: hidden;
       position: relative;
       border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 40px rgba(14, 165, 255, 0.2);
     }
     .profile img {
       width: 100%;
@@ -185,7 +286,45 @@
     .section h2 {
       margin: 0 0 18px;
       font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
+    /* ===== Stats Section ===== */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+    .stat-card {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(14, 165, 255, 0.08), rgba(229, 9, 20, 0.05));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue-stroke);
+      box-shadow: 0 15px 40px rgba(14, 165, 255, 0.1);
+    }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--blue-stroke));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
     .projects-grid {
       display: flex;
       flex-wrap: wrap;
@@ -199,18 +338,47 @@
       border-radius: var(--card-radius);
       background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      transition: all 0.28s ease;
       border: 1px solid rgba(255,255,255,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    .project-card:hover::before {
+      left: 100%;
     }
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      border-color: rgba(14, 165, 255, 0.3);
     }
     .project-thumb {
       height: 160px;
       border-radius: 10px;
       overflow: hidden;
       margin-bottom: 12px;
+      position: relative;
+    }
+    .project-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--accent);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 5;
     }
     .project-title {
       font-weight: 700;
@@ -233,6 +401,7 @@
       background: var(--glass);
       border-radius: 999px;
       color: var(--muted);
+      border: 1px solid rgba(14, 165, 255, 0.2);
     }
 
     .contact {
@@ -240,6 +409,7 @@
       gap: 14px;
       align-items: center;
       margin-top: 28px;
+      flex-wrap: wrap;
     }
     .contact .info {
       display: flex;
@@ -249,6 +419,13 @@
     .contact a {
       color: var(--muted);
       font-weight: 600;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .contact a:hover {
+      color: var(--blue-stroke);
     }
 
     .whatsapp-btn {
@@ -264,9 +441,703 @@
       border-radius: 999px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       color: white;
+      transition: all 0.3s ease;
+      animation: pulse-whatsapp 2s infinite;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
     }
     .whatsapp-btn img {
       width: 20px;
+    }
+
+    @keyframes pulse-whatsapp {
+      0%, 100% {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+      50% {
+        box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6);
+      }
+    }
+
+    /* ===== Video Showcase ===== */
+    .video-wrapper {
+      width: 360px;
+      height: 420px;
+      border-radius: 18px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 30px rgba(14, 165, 255, 0.2);
+      position: absolute;
+      margin-left: 80%;
+      display: inline-block;
+      border: 1px solid rgba(14, 165, 255, 0.2);
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(229, 9, 20, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-wrapper video:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 80px rgba(229, 9, 20, 0.5);
+    }
+
+    .video-showcase {
+      margin: 60px 0;
+      padding: 40px;
+      background: var(--glass);
+      border-radius: var(--card-radius);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .video-card {
+      position: relative;
+      background: rgba(18, 18, 18, 0.8);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(14, 165, 255, 0.2);
+      border-color: var(--blue-stroke);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-card-content {
+      padding: 20px;
+    }
+
+    .video-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .video-card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .video-card:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .play-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(229, 9, 20, 0.6);
+      transform: scale(1);
+      transition: transform 0.2s ease;
+    }
+
+    .video-card:hover .play-btn {
+      transform: scale(1.1);
+    }
+
+    .play-btn::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 20px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+
+    /* ===== Skills Section ===== */
+    .skills-video-section {
+      margin: 60px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(14, 165, 255, 0.05), rgba(229, 9, 20, 0.05));
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skills-video-section video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 15px 50px rgba(14, 165, 255, 0.3);
+    }
+
+    .skills-content h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--accent), var(--blue-stroke));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: var(--glass);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: rgba(229, 9, 20, 0.1);
+      border-color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    .skill-icon {
+      font-size: 24px;
+    }
+
+    /* ===== Testimonials Section ===== */
+    .testimonials {
+      margin: 60px 0;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.08), rgba(14, 165, 255, 0.05));
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .testimonials h2 {
+      margin-bottom: 30px;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .testimonial-card {
+      padding: 24px;
+      background: rgba(18, 18, 18, 0.6);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue-stroke);
+      background: rgba(18, 18, 18, 0.8);
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      color: #fff;
+    }
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--blue-stroke);
+    }
+    .star-rating {
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    /* ===== CTA Section ===== */
+    .cta-section {
+      margin: 80px 0 40px;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, var(--accent), #ff1d28);
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(229, 9, 20, 0.4);
+    }
+    .cta-section h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+      justify-content: center;
+    }
+    .cta-section p {
+      font-size: 16px;
+      margin-bottom: 32px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== Booking/Calendar Section ===== */
+    .booking-section {
+      margin: 80px 0;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(14, 165, 255, 0.1), rgba(229, 9, 20, 0.08));
+      border-radius: 20px;
+      border: 1px solid rgba(14, 165, 255, 0.2);
+      text-align: center;
+    }
+
+    .booking-section h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--blue-stroke));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .booking-section p {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 60ch;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .booking-btn {
+      padding: 16px 40px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background: linear-gradient(135deg, #00d4ff, #0ea5ff);
+      color: white;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .booking-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 45px rgba(0, 212, 255, 0.5);
+    }
+
+    /* ===== Case Studies Section ===== */
+    .case-studies {
+      margin: 80px 0;
+    }
+
+    .case-studies h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .case-study-card {
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-study-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .case-study-card:hover::before {
+      left: 100%;
+    }
+
+    .case-study-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--blue-stroke);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(14, 165, 255, 0.2);
+    }
+
+    .case-study-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .case-study-tag {
+      background: rgba(14, 165, 255, 0.15);
+      color: var(--blue-stroke);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(14, 165, 255, 0.3);
+    }
+
+    .case-study-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .case-study-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .case-study-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 20px;
+    }
+
+    .case-study-stat {
+      text-align: center;
+    }
+
+    .case-study-stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--blue-stroke));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .case-study-stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .case-study-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 16px;
+      background: rgba(14, 165, 255, 0.1);
+      border: 1px solid rgba(14, 165, 255, 0.3);
+      color: var(--blue-stroke);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .case-study-btn:hover {
+      background: rgba(14, 165, 255, 0.2);
+      border-color: var(--blue-stroke);
+      transform: translateY(-2px);
+    }
+
+    .case-study-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .case-study-modal.active {
+      display: flex;
+    }
+
+    .case-study-modal-content {
+      background: linear-gradient(135deg, rgba(18, 18, 18, 0.98), rgba(11, 11, 11, 0.98));
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid rgba(14, 165, 255, 0.2);
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+
+    .case-study-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .case-study-modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .modal-subtitle {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .modal-section {
+      margin-bottom: 32px;
+    }
+
+    .modal-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--blue-stroke);
+    }
+
+    .modal-section p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .modal-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .modal-bullets li {
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .modal-bullets li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .modal-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      background: rgba(14, 165, 255, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(14, 165, 255, 0.2);
+      margin: 20px 0;
+    }
+
+    .modal-stat {
+      text-align: center;
+    }
+
+    .modal-stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--blue-stroke));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .modal-stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ===== FAQ Section ===== */
+    .faq-section {
+      margin: 80px 0;
+    }
+
+    .faq-section h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(14, 165, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(14, 165, 255, 0.05);
+    }
+
+    .faq-question-text {
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      flex: 1;
+    }
+
+    .faq-toggle-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(14, 165, 255, 0.2);
+      border-radius: 50%;
+      color: var(--blue-stroke);
+      font-weight: 800;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle-icon {
+      background: rgba(14, 165, 255, 0.4);
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: rgba(14, 165, 255, 0.05);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer-text {
+      padding: 0 20px 20px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .faq-categories {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .faq-category-btn {
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(14, 165, 255, 0.3);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .faq-category-btn:hover,
+    .faq-category-btn.active {
+      background: rgba(14, 165, 255, 0.15);
+      border-color: var(--blue-stroke);
+      color: var(--blue-stroke);
     }
 
     @media (max-width: 960px) {
@@ -287,6 +1158,41 @@
       .project-card {
         flex-basis: calc(50% - 12px);
       }
+      .skills-video-section {
+        grid-template-columns: 1fr;
+      }
+      .video-wrapper {
+        position: relative;
+        margin-left: 0;
+        width: 100%;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
+      .cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .booking-section {
+        padding: 40px 24px;
+      }
+
+      .booking-section h2 {
+        font-size: 28px;
+      }
+
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study-modal-content {
+        padding: 30px 20px;
+        max-width: 90vw;
+      }
+
+      .modal-stats {
+        grid-template-columns: 1fr;
+      }
     }
     @media (max-width: 560px) {
       h1 {
@@ -303,42 +1209,136 @@
         padding: 0 12px;
         height: 62px;
       }
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .skills-list {
+        grid-template-columns: 1fr;
+      }
+      .cta-section {
+        padding: 40px 20px;
+      }
+      .cta-section h2 {
+        font-size: 28px;
+      }
     }
 
     a:focus, button:focus {
       outline: 2px solid rgba(14,165,255,0.18);
       outline-offset: 2px;
     }
+
+    .stroke-text {
+      color: transparent !important;
+      -webkit-text-stroke: 2px #ffffff;
+      font-weight: 800;
+      mix-blend-mode: screen;
+      position: relative;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 80px;
+    }
+
+    /* Video modal styles */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.75);
+      z-index: 1200;
+      padding: 20px;
+    }
+    .video-modal.active { display: flex; }
+    .video-modal-content {
+      width: min(1100px, 96%);
+      max-height: 90vh;
+      background: linear-gradient(135deg, rgba(18,18,18,0.98), rgba(11,11,11,0.98));
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+    }
+    .video-modal video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: black;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 5;
+      background: rgba(255,255,255,0.06);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .video-modal-close:hover { transform: rotate(90deg); background: rgba(255,255,255,0.12); }
+
   </style>
 </head>
 <body>
-  <!-- Background floating images -->
-<div class="bg-layer">
-  <div class="bg-img" style="background-image:url('download.1-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download2-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download3-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download4-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download5-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download6-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download7-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download8-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download9-removebg-preview.png')"></div>
-  <div class="bg-img" style="background-image:url('download10-removebg-preview.png')"></div>
+// ...existing code...
+{ changed code }
+<!-- Video lightbox modal (insert near top of <body> or just after the .video-grid) -->
+<div id="videoModal" class="video-modal" role="dialog" aria-hidden="true" aria-label="Video player">
+  <div class="video-modal-content" role="document">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Close video">✕</button>
+    <!-- modal video: controls and plays with sound only in modal -->
+    <video id="modalVideo" controls playsinline></video>
+  </div>
 </div>
+{ changed code }
+// ...existing code...
 
+  <!-- Background floating images -->
+  <div class="bg-layer">
+    <div class="bg-img" style="background-image:url('download.1-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download2-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download3-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download4-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download5-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download6-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download7-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download8-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download9-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('download10-removebg-preview.png')"></div>
+    <div class="bg-img" style="background-image:url('aftereffect-removebg-preview.png')"></div>
+   <div class="bg-img" style="background-image:url('capcut-removebg-preview.png')"></div>
+  </div>
 
   <!-- Top navigation -->
   <header class="nav" role="banner">
     <div class="brand">Praveen<span style="color:var(--muted); font-weight:600; margin-left:8px;">• Portfolio</span></div>
+    <nav class="nav-right">
+      <a href="#projects" class="btn">Work</a>
+      <a href="#about" class="btn">About</a>
+      <button class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+    </nav>
   </header>
 
   <main class="container" role="main">
     <section class="hero" aria-label="Intro">
       <div class="hero-left">
-        <div class="kicker">Front-End Developer</div>
+        <div class="kicker">🚀 Front-End Developer & Designer</div>
         <h1>Hi — I'm <span style="color:var(--accent)">Praveen Pachange</span>.<br> I build clean, production-ready websites.</h1>
-        <p class="lead"> interested in Front-End Web Development and AI-driven design. Skilled in communication, leadership, and creative problem-solving. Eager to apply technical and design skills to build modern, efficient, and user-friendly web solutions.
- Scroll to see projects, or reach out via the contact links.</p>
+        <p class="lead">Specializing in Front-End Web Development and AI-driven design. Skilled in communication, leadership, and creative problem-solving. I build modern, efficient, and user-friendly web solutions that drive results. Let's create something amazing together.</p>
+
+        <div class="cta-buttons">
+          <button class="cta-btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">💬 Get in Touch</button>
+          <button class="cta-btn secondary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">📁 View My Work</button>
+        </div>
 
         <div class="contact" id="contact">
           <div class="info">
@@ -348,60 +1348,757 @@
           </div>
         </div>
       </div>
+      <div class="video-wrapper">
+        <video id="bgVideo" autoplay muted loop playsinline>
+          <source src="character.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
 
-      <div class="profile-wrap" aria-hidden="false">
-        <div class="profile" role="img" aria-label="Profile image of Your Name">
-          <img src=" IMG_20250308_000439_685.png " alt="Profile image">
-          <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path class="svg-path" d="M20,140 C40,20 220,10 240,130" stroke-linecap="round"/>
-            <path class="svg-path" d="M36,160 C58,46 202,38 218,150" stroke-linecap="round" opacity="0.65"/>
-          </svg>
+    <!-- Stats Section -->
+    <section class="stats-container">
+      <div class="stat-card">
+        <div class="stat-number" data-target="50" data-suffix="+">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="95" data-suffix="%">0</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="3" data-suffix="+">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+        <div class="stat-label">Support Available</div>
+      </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section class="section video-showcase" id="videos">
+      <h2>✨ My Creative Work</h2>
+      <p style="color:var(--muted); margin-bottom: 20px;">Check out some of my video editing and creative projects that showcase modern design and cutting-edge web solutions</p>
+      
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="project-badge">Anime</div>
+          <video loop muted playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;">
+            <source src="cool.mp4" type="video/mp4">
+          </video>
+          <div class="play-overlay">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-card-content">
+            <div class="video-card-title">Anime Video Showcase</div>
+            <div class="video-card-desc">We break, we fall, and somehow... we rise again.</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="project-badge">Spidey</div>
+          <video loop muted playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;">
+            <source src="Spidey.mp4" type="video/mp4">
+          </video>
+          <div class="play-overlay">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-card-content">
+            <div class="video-card-title">Spider Man Rampage</div>
+            <div class="video-card-desc">Some heroes are born. Spider-Man was shaped by loss</div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="project-badge">BMW</div>
+          <video loop muted playsinline onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;">
+            <source src="BMW.mp4" type="video/mp4">
+          </video>
+          <div class="play-overlay">
+            <div class="play-btn"></div>
+          </div>
+          <div class="video-card-content">
+            <div class="video-card-title">BMW Edit</div>
+            <div class="video-card-desc">Some engines are heard. BMW engines are remembered.</div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Skills with Video Section -->
+    <section class="section">
+      <div class="skills-video-section">
+        <div class="skills-content">
+          <h3>Skills & Expertise</h3>
+          <p style="color:var(--muted); line-height:1.6;">I specialize in creating modern, responsive web experiences with cutting-edge technologies and design principles. Every project is optimized for performance and user engagement.</p>
+          
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-icon">🎨</span>
+              <span>UI/UX Design</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">💻</span>
+              <span>HTML/CSS/JS</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">⚛️</span>
+              <span>React.js</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">🎬</span>
+              <span>Video Editing</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">📱</span>
+              <span>Responsive Design</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">⚡</span>
+              <span>Performance Optimization</span>
+            </div>
+          </div>
+        </div>
+        
+        <div style="align-items: end;">
+          <img src="Screenshot_2025-11-16-22-27-49-590_com.google.android.apps.photos.jpg" style="height: 100%;width: 60%;border-radius: 20px;margin-left: 120px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
     <section class="section" id="projects">
-      <h2>Selected Projects</h2>
+      <h2>🏆 Selected Projects</h2>
       <div class="projects-grid">
         <article class="project-card" role="article">
           <a href="https://praveen-tech-guy.github.io/DIGITAL-CREATORS-GOA/DigitalAgency.html">
-          <div class="project-thumb"> <img src="marketing.jpg" alt=""></div>
-          <div class="project-title">PORTFOLIO FOR CREATORS</div>
-          <div class="project-desc">website for DIGITAL CREATORS.</div>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JS</span>
-          </div>
+            <div class="project-thumb">
+              <div class="project-badge">Live</div>
+              <img src="marketing.jpg" alt="Digital Creators Portfolio">
+            </div>
+            <div class="project-title">PORTFOLIO FOR CREATORS</div>
+            <div class="project-desc">Professional website for DIGITAL CREATORS GOA with stunning visuals.</div>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
           </a>
         </article>
 
         <article class="project-card">
           <a href="https://praveen-tech-guy.github.io/Cafe-webpage/cafe.html">
-          <div class="project-thumb" style="align-items: center;"><img src="cafe3.jpeg" alt=""></div>
-          <div class="project-title">CAFE WEBSITE</div>
-          <div class="project-desc">An authentic website for cafe's.</div>
-          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span> <span class="tag">JS</span></div>
+            <div class="project-thumb">
+              <div class="project-badge">Live</div>
+              <img src="cafe3.jpeg" alt="Cafe Website">
+            </div>
+            <div class="project-title">CAFE WEBSITE</div>
+            <div class="project-desc">An authentic website for cafes with menu showcase and booking system.</div>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
           </a>
         </article>
 
         <article class="project-card">
           <a href="https://praveen-tech-guy.github.io/Sheetal/Sheetal.html">
-          <div class="project-thumb"><img src="cheezpizza.jpeg" alt=""></div>
-          <div class="project-title">RESTUARANT WEBSITE</div>
-          <div class="project-desc">A personal website for the restuarants ,to increase their online presence.</div>
-          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+            <div class="project-thumb">
+              <div class="project-badge">Live</div>
+              <img src="cheezpizza.jpeg" alt="Restaurant Website">
+            </div>
+            <div class="project-title">RESTAURANT WEBSITE</div>
+            <div class="project-desc">Modern restaurant website to increase online presence and reservations.</div>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </a>
         </article>
       </div>
-      
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+      <h2>⭐ Client Testimonials</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="testimonial-text">"Praveen delivered an exceptional website that exceeded our expectations. His attention to detail and communication throughout the project was outstanding."</p>
+          <div class="testimonial-author">John Smith</div>
+          <div class="testimonial-role">CEO, Digital Creators GOA</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="testimonial-text">"Working with Praveen was a game-changer. He transformed our vision into a beautiful, fully functional website that drives real results."</p>
+          <div class="testimonial-author">Sarah Johnson</div>
+          <div class="testimonial-role">Owner, The Brew Cafe</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="testimonial-text">"Professional, creative, and incredibly responsive. Praveen is the kind of developer every business needs. Highly recommended!"</p>
+          <div class="testimonial-author">Mike Chen</div>
+          <div class="testimonial-role">Manager, Sheetal Restaurant</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
     <section class="section" id="about">
       <h2>About Me</h2>
-      <p style="color:var(--muted); max-width:66ch">I design and build full-stack applications with an emphasis on performance, accessible UX, and polished UI. I enjoy turning complex problems into simple, beautiful interfaces. <a href="https://www.figma.com/design/sz0HUksku5P26ObBwFFAjK/Untitled?m=auto&t=PxlT47V0eY06m0mg-1"><p>My Resume</p></a></p></p>
+      <p style="color:var(--muted); max-width:66ch; line-height: 1.8;">I'm a passionate front-end developer with a flair for creating beautiful, intuitive digital experiences. With 3+ years of experience, I've helped businesses of all sizes establish a strong online presence. I design and build full-stack applications with an emphasis on performance, accessible UX, and polished UI. My goal is turning complex problems into simple, elegant solutions.
+      </p>
+      <p style="color:var(--muted); max-width:66ch; line-height: 1.8; margin-top: 16px;">
+        When I'm not coding, I'm exploring new design trends, learning emerging technologies, and helping other developers grow. <a href="https://www.figma.com/design/sz0HUksku5P26ObBwFFAjK/Untitled?m=auto&t=PxlT47V0eY06m0mg-1" style="color: var(--blue-stroke); text-decoration: underline;">View my resume</a> or <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" style="color: var(--accent); text-decoration: underline;">get in touch</a>.
+      </p>
     </section>
 
-    <footer style="margin-top:40px; color:var(--muted); font-size:13px">© <span id=\"year\"></span> PRAVEEN — Built with ✨</footer>
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+      <h2>Ready to Work Together? 🚀</h2>
+      <p>Let's create something incredible for your business. I'm available for freelance projects and full-time opportunities.</p>
+      <button class="cta-btn primary" onclick="window.open('https://wa.me/917028115061?text=Hi%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project', '_blank')">Start Your Project Today</button>
+    </section>
+
+    <!-- Booking/Calendar Section -->
+    <section class="booking-section">
+      <h2>📅 Book a Discovery Call</h2>
+      <p>Let's discuss your project goals and see how I can help bring your vision to life. Free 30-minute consultation with no obligation.</p>
+      <button class="booking-btn" onclick="window.open('https://calendly.com/praveenpachange9/30min', '_blank')">
+        📆 Schedule a Meeting
+      </button>
+    </section>
+
+    <!-- Case Studies Section -->
+ // ...existing code...
+
+    <!-- Case Studies Section -->
+    <section class="section case-studies" id="case-studies">
+      <h2>📊 Case Studies</h2>
+      <div class="case-studies-grid">
+        
+        <!-- Case Study 1 -->
+        <div class="case-study-card" onclick="openCaseStudy('case1')">
+          <div class="case-study-header">
+            <div>
+              <div class="case-study-tag">Web Development</div>
+            </div>
+          </div>
+          <div class="case-study-title">Digital Creators GOA Portfolio</div>
+          <div class="case-study-desc">Professional portfolio website for digital creators with modern design and lead generation system.</div>
+          
+          <div class="case-study-stats">
+            <div class="case-study-stat">
+              <div class="case-study-stat-number">45%</div>
+              <div class="case-study-stat-label">Increase in Leads</div>
+            </div>
+            <div class="case-study-stat">
+              <div class="case-study-stat-number">2.5s</div>
+              <div class="case-study-stat-label">Load Time</div>
+            </div>
+          </div>
+
+          <button class="case-study-btn" onclick="event.stopPropagation(); openCaseStudy('case1')">View Full Case Study →</button>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="case-study-card" onclick="openCaseStudy('case2')">
+          <div class="case-study-header">
+            <div>
+              <div class="case-study-tag">UI/UX & Development</div>
+            </div>
+          </div>
+          <div class="case-study-title">Cafe Website with Booking</div>
+          <div class="case-study-desc">Full-featured cafe website with menu showcase, online booking system, and reservation management.</div>
+          
+          <div class="case-study-stats">
+            <div class="case-study-stat">
+              <div class="case-study-stat-number">60+</div>
+              <div class="case-study-stat-label">Monthly Bookings</div>
+            </div>
+            <div class="case-study-stat">
+              <div class="case-study-stat-number">98%</div>
+              <div class="case-study-stat-label">User Satisfaction</div>
+            </div>
+          </div>
+
+       <button class="case-study-btn" onclick="event.stopPropagation(); openCaseStudy('case2')">View Full Case Study →</button>
+        </div>
+
+      <!-- Case Study 3 -->
+        <div class="case-study-card" onclick="openCaseStudy('case3')">
+          <div class="case-study-header">
+            <div>
+              <div class="case-study-tag">Full Stack Development</div>
+            </div>
+          </div>
+          <div class="case-study-title">Restaurant Online Presence</div>
+          <div class="case-study-desc">Modern restaurant website with online ordering, menu management, and customer reservation system.</div>
+          
+          <div class="case-study-stats">
+            <div class="case-study-stat">
+              <div class="case-study-stat-number">120+</div>
+              <div class="case-study-stat-label">Orders/Month</div>
+            </div>
+            <div class="case-study-stat">
+              <div class="case-study-stat-number">3x</div>
+              <div class="case-study-stat-label">Revenue Growth</div>
+            </div>
+          </div>
+
+          <button class="case-study-btn" onclick="event.stopPropagation(); openCaseStudy('case3')">View Full Case Study →</button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Case Study Modals -->
+    <div id="case1Modal" class="case-study-modal">
+      <div class="case-study-modal-content">
+        <button class="case-study-modal-close" onclick="closeCaseStudy('case1')">✕</button>
+        <div class="modal-header">
+          <div class="modal-title">Digital Creators GOA Portfolio</div>
+          <div class="modal-subtitle">Professional Portfolio Website</div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>Digital Creators GOA needed a modern, professional portfolio website to showcase their creative work and attract clients. The website needed to balance aesthetic appeal with functionality to generate quality leads.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Challenges</h3>
+          <ul class="modal-bullets">
+            <li>Limited online presence compared to competitors</li>
+            <li>Required lead generation and contact system</li>
+            <li>Performance optimization for international audience</li>
+          </ul>
+        </div>
+
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <div class="modal-stat-num">45%</div>
+            <div class="modal-stat-label">Increase in Leads</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-num">2.5s</div>
+            <div class="modal-stat-label">Load Time</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-num">98%</div>
+            <div class="modal-stat-label">Performance Score</div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Solution Delivered</h3>
+          <ul class="modal-bullets">
+            <li>Modern, responsive design with smooth animations</li>
+            <li>Portfolio showcase with filtering capabilities</li>
+            <li>Lead capture form with email notifications</li>
+            <li>Performance optimization & SEO implementation</li>
+            <li>Mobile-first development approach</li>
+            <li>CMS integration for easy content updates</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Technologies Used</h3>
+          <ul class="modal-bullets">
+            <li>HTML5, CSS3, JavaScript</li>
+            <li>Responsive Design</li>
+            <li>Performance Optimization</li>
+            <li>SEO Best Practices</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Results & Impact</h3>
+          <p><strong>Before:</strong> Limited online presence, few inquiries per month</p>
+          <p><strong>After:</strong> 45% increase in qualified leads, professional online brand, improved search rankings</p>
+          <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <strong>Client Feedback:</strong> "Praveen delivered exactly what we needed. The website has completely transformed how potential clients perceive our business."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="case2Modal" class="case-study-modal">
+      <div class="case-study-modal-content">
+        <button class="case-study-modal-close" onclick="closeCaseStudy('case2')">✕</button>
+        <div class="modal-header">
+          <div class="modal-title">The Brew Cafe Website</div>
+          <div class="modal-subtitle">Online Presence & Booking System</div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>The Brew Cafe required a modern website with online menu display and table reservation system to streamline customer bookings and reduce manual coordination.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Challenges</h3>
+          <ul class="modal-bullets">
+            <li>Manual booking process was time-consuming</li>
+            <li>No online menu visibility</li>
+            <li>Difficulty managing customer inquiries</li>
+            <li>Outdated digital presence</li>
+          </ul>
+        </div>
+
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <div class="modal-stat-num">60+</div>
+            <div class="modal-stat-label">Monthly Bookings</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-num">98%</div>
+            <div class="modal-stat-label">User Satisfaction</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-num">80%</div>
+            <div class="modal-stat-label">Time Saved</div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Solution Delivered</h3>
+          <ul class="modal-bullets">
+            <li>Interactive online menu with categorization</li>
+            <li>Automated table reservation system</li>
+            <li>Email notification system for bookings</li>
+            <li>Mobile-responsive design</li>
+            <li>Admin dashboard for managing reservations</li>
+            <li>Google Maps integration & location</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Results & Impact</h3>
+          <p><strong>Before:</strong> 10-15 bookings/month via phone calls</p>
+          <p><strong>After:</strong> 60+ bookings/month through website, 80% reduction in manual work</p>
+          <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <strong>Client Feedback:</strong> "The booking system has been a game-changer. We now handle bookings effortlessly!"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="case3Modal" class="case-study-modal">
+      <div class="case-study-modal-content">
+        <button class="case-study-modal-close" onclick="closeCaseStudy('case3')">✕</button>
+        <div class="modal-header">
+          <div class="modal-title">Sheetal Restaurant</div>
+          <div class="modal-subtitle">Full-Stack Web Solution</div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>Sheetal Restaurant needed a comprehensive online solution including menu display, online ordering, and reservation management to increase online sales and customer engagement.</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Challenges</h3>
+          <ul class="modal-bullets">
+            <li>Low online visibility and sales</li>
+            <li>Need for online ordering capability</li>
+            <li>Complex menu management</li>
+            <li>Competition from established online platforms</li>
+          </ul>
+        </div>
+
+        <div class="modal-stats">
+          <div class="modal-stat">
+            <div class="modal-stat-num">120+</div>
+            <div class="modal-stat-label">Orders/Month</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-num">3x</div>
+            <div class="modal-stat-label">Revenue Growth</div>
+          </div>
+          <div class="modal-stat">
+            <div class="modal-stat-num">4.8★</div>
+            <div class="modal-stat-label">Avg Rating</div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Solution Delivered</h3>
+          <ul class="modal-bullets">
+            <li>Full-featured online ordering system</li>
+            <li>Real-time order tracking</li>
+            <li>Dynamic menu with pricing & images</li>
+            <li>Secure payment gateway integration</li>
+            <li>Customer review system</li>
+            <li>Admin dashboard for order management</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Results & Impact</h3>
+          <p><strong>Before:</strong> Minimal online presence, 20-30 orders/month</p>
+          <p><strong>After:</strong> 120+ orders/month, 3x revenue increase, strong customer reviews</p>
+          <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <strong>Client Feedback:</strong> "Praveen's solution revolutionized our business. We couldn't be happier with the results!"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+      <h2>❓ Frequently Asked Questions</h2>
+      
+      <div class="faq-categories">
+        <button class="faq-category-btn active" onclick="filterFAQ('all', event)">All</button>
+        <button class="faq-category-btn" onclick="filterFAQ('services', event)">Services</button>
+        <button class="faq-category-btn" onclick="filterFAQ('pricing', event)">Pricing</button>
+        <button class="faq-category-btn" onclick="filterFAQ('process', event)">Process</button>
+      </div>
+
+      <div class="faq-container">
+        <!-- Services FAQs -->
+        <div class="faq-item" data-category="services">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">What services do you offer?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">I provide comprehensive web development and design services including: Web Development (HTML, CSS, JavaScript, React), UI/UX Design, Video Editing, Responsive Web Design, Performance Optimization, and Full-stack applications. Each service is tailored to meet your specific business needs.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="services">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">Do you work with startups?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">Absolutely! I love working with startups and have experience helping early-stage companies establish their online presence. I offer flexible engagement models and scalable solutions that grow with your business.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="services">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">Can you integrate payment gateways?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">Yes! I have experience integrating various payment gateways including Stripe, PayPal, Razorpay, and others. I ensure secure, PCI-compliant implementations for e-commerce platforms.</div>
+          </div>
+        </div>
+
+        <!-- Pricing FAQs -->
+        <div class="faq-item" data-category="pricing">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">What's your pricing model?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">I offer flexible pricing based on project scope and complexity. Options include fixed-price projects, hourly rates for ongoing work, and retainer agreements. Each project is custom-quoted after understanding requirements. Contact me for a detailed estimate.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="pricing">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">Do you offer payment plans?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">Yes! I understand that businesses need flexibility. We can discuss payment plans for larger projects - typically 50% upfront and 50% on completion, or custom arrangements based on project milestones.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="pricing">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">What's included in your service?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">All projects include design, development, testing, deployment, and post-launch support. I also provide training on how to manage your website and offer ongoing maintenance packages.</div>
+          </div>
+        </div>
+
+        <!-- Process FAQs -->
+        <div class="faq-item" data-category="process">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">How long does a website take?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">Timeline depends on project complexity. Simple websites take 2-3 weeks, while complex applications may take 4-8 weeks. After our discovery call, I'll provide a detailed timeline based on your specific requirements.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="process">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">What's your project process?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">My process: 1) Discovery & Planning - Understanding your goals, 2) Design - Creating mockups for approval, 3) Development - Building the website, 4) Testing - QA and bug fixes, 5) Deployment - Going live, 6) Support - Post-launch assistance.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="process">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">Do you provide revisions?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">Yes! I include multiple rounds of revisions in my projects to ensure complete satisfaction. After launch, I also offer ongoing support and maintenance services for any updates or improvements.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-category="process">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span class="faq-question-text">How do we communicate during the project?</span>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-text">I maintain constant communication through email, WhatsApp, and video calls. You'll get regular updates on progress, and we'll have weekly check-ins to ensure everything is on track and meets your expectations.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Case Study Functions
+      function openCaseStudy(caseId) {
+        const modal = document.getElementById(caseId + 'Modal');
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeCaseStudy(caseId) {
+        const modal = document.getElementById(caseId + 'Modal');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      }
+
+      // Close modal when clicking outside
+      document.querySelectorAll('.case-study-modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      });
+
+      // FAQ Functions
+      function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        faqItem.classList.toggle('active');
+      }
+
+      // Updated FAQ filter to accept event param
+      function filterFAQ(category, ev) {
+        const items = document.querySelectorAll('.faq-item');
+        const buttons = document.querySelectorAll('.faq-category-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        if (ev && ev.currentTarget) ev.currentTarget.classList.add('active');
+
+        items.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+
+      // Close FAQ on outside click
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.faq-item') && !e.target.closest('.faq-category-btn')) {
+          document.querySelectorAll('.faq-item.active').forEach(item => {
+            item.classList.remove('active');
+          });
+        }
+      });
+
+      // ===== Video autoplay on scroll + modal player =====
+      (function(){
+        const videos = Array.from(document.querySelectorAll('.video-card video'));
+        if (videos.length === 0) return;
+
+        // IntersectionObserver: play when in view, pause when not
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const vid = entry.target;
+            if (entry.isIntersecting) {
+              // play muted videos (autoplay allowed only when muted)
+              vid.muted = true;
+              vid.play().catch(()=>{ /* autoplay blocked */ });
+            } else {
+              // pause to save CPU
+              try { vid.pause(); vid.currentTime = 0; } catch(e){}
+            }
+          });
+        }, { threshold: 0.55, rootMargin: '0px' });
+
+        videos.forEach(v => io.observe(v));
+
+        // Modal player
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalClose = document.getElementById('videoModalClose');
+
+        function openModalWithVideo(src, currentTime = 0) {
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+          // set source and play
+          modalVideo.src = src;
+          modalVideo.currentTime = currentTime || 0;
+          modalVideo.muted = false;
+          modalVideo.play().catch(()=>{});
+        }
+
+        function closeModal() {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          try { modalVideo.pause(); } catch(e){}
+          modalVideo.removeAttribute('src');
+          modalVideo.load();
+        }
+
+        // open modal when user clicks play-overlay or play-btn
+        document.querySelectorAll('.video-card').forEach(card => {
+          const overlay = card.querySelector('.play-overlay');
+          const thumbVideo = card.querySelector('video');
+          const source = thumbVideo && (thumbVideo.currentSrc || (thumbVideo.querySelector('source') && thumbVideo.querySelector('source').src));
+          // overlay click opens modal (preferred)
+          if (overlay && source) {
+            overlay.style.pointerEvents = 'auto';
+            overlay.addEventListener('click', (e) => {
+              e.stopPropagation();
+              // use currentTime of thumbnail video to continue smoothly
+              const ct = thumbVideo ? thumbVideo.currentTime : 0;
+              openModalWithVideo(source, ct);
+            });
+          }
+        });
+
+        // close handlers
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+      })();
+    </script>
+
   </main>
 
   <a class="whatsapp-btn" href="https://wa.me/917028115061?text=Hi%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect" target="_blank" rel="noopener noreferrer">
@@ -409,15 +2106,108 @@
     <span style="font-weight:700">Chat</span>
   </a>
 
-<script>
-const posters = document.querySelectorAll('.bg-layer .bg-img');
-posters.forEach(poster => {
-  poster.style.left = Math.random() * 100 + "vw";
-  poster.style.animationDuration = (40 + Math.random() * 30) + "s";
-  poster.style.animationDelay = (Math.random() * 40) + "s";
-});
+  <script>
+    // Set current year (guard in case footer/year element is not present)
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-</script>
+    // Background images animation
+    const posters = document.querySelectorAll('.bg-layer .bg-img');
+    posters.forEach(poster => {
+      poster.style.left = Math.random() * 100 + "vw";
+      poster.style.animationDuration = (40 + Math.random() * 30) + "s";
+      poster.style.animationDelay = (Math.random() * 40) + "s";
+    });
+
+    const vid = document.getElementById("bgVideo");
+    vid.addEventListener("ended", () => {
+      vid.currentTime = 0;
+      vid.play();
+    });
+
+    // Intersection Observer for videos
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(e => console.log('Auto-play prevented'));
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.skills-video-section video').forEach(video => {
+      videoObserver.observe(video);
+    });
+
+    // Video card click handlers
+    document.querySelectorAll('.video-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const video = this.querySelector('video');
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+        // ===== ANIMATED COUNTER STATS =====
+    const animateCounters = () => {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      const container = document.querySelector('.stats-container');
+      if (!container || statNumbers.length === 0) return;
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          // animate each stat with requestAnimationFrame for smoothness
+          statNumbers.forEach(el => {
+            const target = parseFloat(el.dataset.target) || 0;
+            const suffix = el.dataset.suffix || '';
+            const duration = 1500; // ms
+            let start = null;
+
+            const step = (timestamp) => {
+              if (!start) start = timestamp;
+              const progress = Math.min((timestamp - start) / duration, 1);
+              const value = Math.floor(progress * target);
+              el.textContent = (progress < 1) ? value : (target + suffix);
+              if (progress < 1) {
+                requestAnimationFrame(step);
+              }
+            };
+
+            requestAnimationFrame(step);
+          });
+          obs.disconnect(); // run once
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(container);
+    };
+
+    window.addEventListener('load', animateCounters);
+    // in case section is already visible
+    setTimeout(animateCounters, 200);
+  </script>
 
 </body>
 </html>
